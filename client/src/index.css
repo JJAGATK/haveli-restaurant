@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --color-maroon-950: #0F0205;
+  --color-maroon-900: #180308;
+  --color-maroon-850: #22050D;
+  --color-maroon-800: #2E0712;
+  --color-maroon-700: #420A1A;
+  --color-maroon-600: #5C0F25;
+  
+  --color-marigold-500: #E67E22;
+  --color-marigold-600: #D35400;
+  --color-marigold-400: #F39C12;
+  --color-marigold-300: #F8C471;
+  
+  --color-gold-500: #D4AF37;
+  --color-gold-600: #B8860B;
+  --color-gold-400: #E5C158;
+  --color-gold-200: #F8E5A8;
+  --color-gold-100: #FCF5DE;
+
+  --color-cream-50: #FCFBF9;
+  --color-cream-100: #FFF9F0;
+  --color-cream-200: #FAF7F2;
+  --color-cream-300: #F3ECE2;
+
+  --color-terracotta-600: #A83E2D;
+  --color-terracotta-500: #B84A39;
+  --color-terracotta-400: #CF6453;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Cinzel', 'Playfair Display', serif;
+  --font-gurmukhi: 'Rozha One', serif;
+}
+
+:root {
+  --canvas-bg: #130307;
+  --canvas-card: #20050D;
+  --maroon: #2B0712;
+  --maroon-dark: #100205;
+  --maroon-light: #480C1B;
+  --marigold: #E67E22;
+  --saffron: #D35400;
+  --gold: #D4AF37;
+  --gold-light: #F8C471;
+  --cream: #FFF9F0;
+  --cream-sand: #FAF7F2;
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Royal Dark Punjabi Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0E0709;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D1018;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E67E22;
+  border-color: #F8C471;
+}
+
+/* Delicious & Royal Liquid Glass Materiality */
+.royal-glass {
+  background: linear-gradient(180deg, rgba(38, 8, 17, 0.88) 0%, rgba(20, 4, 9, 0.96) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 20px 50px rgba(10, 2, 4, 0.88), inset 0 1px 0 rgba(248, 196, 113, 0.3);
+}
+
+.royal-glass-card {
+  background: linear-gradient(180deg, rgba(46, 10, 21, 0.72) 0%, rgba(24, 5, 11, 0.88) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 16px 40px rgba(10, 2, 4, 0.8), inset 0 1px 0 rgba(248, 196, 113, 0.2);
+}
+
+/* Backwards compatibility aliases */
+.apple-glass {
+  background: linear-gradient(180deg, rgba(46, 6, 13, 0.82) 0%, rgba(26, 3, 7, 0.92) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  box-shadow: 0 20px 50px rgba(12, 1, 3, 0.85), inset 0 1px 0 rgba(248, 196, 113, 0.28);
+}
+
+.apple-glass-card {
+  background: linear-gradient(180deg, rgba(66, 10, 19, 0.55) 0%, rgba(28, 4, 8, 0.78) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 15px 40px rgba(12, 1, 3, 0.75), inset 0 1px 0 rgba(248, 196, 113, 0.22);
+}
+
+/* Sizzling Warm Gourmet Food Ambient Glow */
+.gourmet-glow {
+  position: relative;
+}
+.gourmet-glow::before {
+  content: "";
+  position: absolute;
+  inset: -15%;
+  background: radial-gradient(circle, rgba(230, 126, 34, 0.25) 0%, rgba(212, 175, 55, 0.15) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+/* Subtle Royal Paper Grain */
+.paper-grain {
+  position: relative;
+}
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Smooth Hardware Acceleration */
+.gpu {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}

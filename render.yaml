@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: haveli-palatial-restaurant
+    runtime: node
+    plan: free
+    buildCommand: npm run render-build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: file:./prisma/dev.db
+      - key: ADMIN_API_KEY
+        generateValue: true
+      - key: CORS_ORIGIN
+        value: "*"

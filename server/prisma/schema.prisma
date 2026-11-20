@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model MenuItem {
+  id               Int      @id @default(autoincrement())
+  name             String
+  punjabiName      String?
+  description      String
+  category         String   // Breakfast, Parathas and Kulcha, Main Course, South Indian, Snacks and Chaat, Beverages and Lassi, Desserts
+  isVeg            Boolean  @default(true)
+  isSignature      Boolean  @default(false)
+  placeholderPrice String   // Clearly marked placeholder price (e.g., "₹240* [Est. Placeholder]")
+  priceDisclaimer  String   @default("*Placeholder price - verify with restaurant menu")
+  imagePlaceholder String   // Visual slot / placeholder reference
+  available        Boolean  @default(true)
+  dietaryTags      String   @default("Authentic Punjabi")
+  spiceLevel       String?  // Mild, Medium, Rich Spiced
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([category])
+  @@index([isSignature])
+}
+
+model Reservation {
+  id               Int      @id @default(autoincrement())
+  bookingReference String   @unique
+  customerName     String
+  customerPhone    String
+  customerEmail    String?
+  reservationDate  String   // Format: YYYY-MM-DD
+  reservationTime  String   // Format: HH:mm (24-hour)
+  guestCount       Int
+  occasion         String?  // Highway Halt, Family Dinner, Birthday/Anniversary, Tour Group
+  specialNotes     String?
+  status           String   @default("CONFIRMED") // CONFIRMED, SEATED, CANCELLED
+  confirmationSent Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([reservationDate])
+  @@index([status])
+}
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String
+  email     String?
+  subject   String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model RestaurantSetting {
+  key         String   @id
+  value       String
+  description String?
+  updatedAt   DateTime @updatedAt
+}
